@@ -52,3 +52,12 @@ tempCodeRunnerFile.cpp
 *.bin
 *.cph
 *.dSYM
+.autocp
+codeforces -*
+cmake-build-debug
+*.txt
+.autocp
+cmakelists.txt
+.idea
+*.log
+.Ds_store
