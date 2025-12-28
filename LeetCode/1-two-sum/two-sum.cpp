@@ -5,7 +5,7 @@ public:
         if (nums.size() < 3)
             return {0,1};
 
-        map<int, int> m;
+        unordered_map<int, int> m;
         for (int i = 0; i < nums.size(); ++i) {
             m.insert({nums[i], i});
         }
