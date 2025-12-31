@@ -16,6 +16,6 @@ public:
             out.push_back(move(it.second));
         }
 
-        return out;
+        return move(out);
     }
 };
