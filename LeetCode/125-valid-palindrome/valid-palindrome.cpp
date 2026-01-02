@@ -1,39 +1,38 @@
 class Solution {
 public:
     bool isPalindrome(string s) {
-        int i{}, j = s.size() - 1;
-        bool isPal = 1;
+        int start = 0;
+        int end = s.size() - 1;
 
-        while (i < j + 1) {
-            if (s[i] >= '0' && s[i] <= '9') {
-                ++i;
+        while (start <= end) {
+            if (!((s[start] >= '0' && s[start] <= '9') ||
+                  (s[start] >= 'A' && s[start] <= 'Z') ||
+                  (s[start] >= 'a' && s[start] <= 'z'))) {
+                start++;
                 continue;
             }
 
-            if ((!(s[i] >= 'A' && s[i] <= 'Z') &&
-                     !(s[i] >= 'a' && (s[i] <= 'z')) ||
-                 (s[i] == ' '))) {
-                s.erase(s.begin() + i);
-                --j;
+            if (!((s[end] >= '0' && s[end] <= '9') ||
+                  (s[end] >= 'A' && s[end] <= 'Z') ||
+                  (s[end] >= 'a' && s[end] <= 'z'))) {
+                end--;
                 continue;
             }
-            ++i;
+
+            char ch1 = s[start];
+            char ch2 = s[end];
+
+            if (ch1 >= 'A' && ch1 <= 'Z')
+                ch1 += 32;
+            if (ch2 >= 'A' && ch2 <= 'Z')
+                ch2 += 32;
+
+            if (ch1 != ch2)
+                return false;
+
+            start++;
+            end--;
         }
-
-        i = 0, j = s.size() - 1;
-        while (i < j) {
-            if (s[i] >= 'A' && s[i] <= 'Z')
-                s[i] += ('a' - 'A');
-
-            if (s[j] >= 'A' && s[j] <= 'Z')
-                s[j] += ('a' - 'A');
-
-            if (s[i++] != s[j--]) {
-                isPal = 0;
-                break;
-            }
-        }
-
-        return isPal;
+        return true;
     }
 };
