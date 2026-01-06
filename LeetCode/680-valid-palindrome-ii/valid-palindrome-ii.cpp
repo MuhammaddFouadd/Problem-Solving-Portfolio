@@ -1,6 +1,6 @@
 class Solution {
 public:
-    bool validPalindrome(string s, int i, int j) {
+    bool isPalindrome(string s, int i, int j) {
         while (i < j) {
             if (s[i++] != s[j--]) {
                 return false;
@@ -14,8 +14,8 @@ public:
         int i = 0, j = s.size() - 1;
         while (i < j) {
             if (s[i] != s[j]) {
-                return validPalindrome(s, i, j - 1) ||
-                       validPalindrome(s, i + 1, j);
+                return isPalindrome(s, i, j - 1) ||
+                       isPalindrome(s, i + 1, j);
             }
             ++i, --j;
         }
