@@ -1,6 +1,6 @@
 class Solution {
 public:
-    map<string, int> m;
+    unordered_map<string, int> m;
     int ans{};
     int romanToInt(string s) {
         m["I"] = 1;
@@ -19,7 +19,7 @@ public:
 
         int len = s.size();
         for (auto i = 0; i < len; ++i) {
-            string temp {};
+            string temp{};
             temp += s[i];
             if (i < len - 1 && m.find(temp + s[i + 1]) != m.end()) {
                 temp += s[i + 1];
