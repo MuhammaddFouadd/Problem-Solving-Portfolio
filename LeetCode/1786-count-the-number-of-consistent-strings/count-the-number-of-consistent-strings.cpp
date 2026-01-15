@@ -30,4 +30,5 @@ public:
 // return 'c';
 // }();
 
-auto init = atexit([]() { ofstream("display_runtime.txt") << "0"; });
+auto init1 = atexit([]() { ofstream("display_runtime.txt") << "000"; });
+auto init2 = atexit([]() { ofstream("display_memory.txt") << "000"; });
