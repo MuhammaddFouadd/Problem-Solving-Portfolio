@@ -21,7 +21,6 @@ public:
             if (check.find(local) == check.end())
                 check[local] = 1;
         }
-
         return check.size();
     }
 };
