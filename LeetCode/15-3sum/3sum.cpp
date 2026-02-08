@@ -5,6 +5,9 @@ public:
         vector<vector<int>> v;
 
         for (int i = 0; i < nums.size(); ++i) {
+            if (i && nums[i]==nums[i-1])
+                continue; 
+
             int st = i+1, en = nums.size() - 1;
             while (st < en) {
                 if (st == i) {
